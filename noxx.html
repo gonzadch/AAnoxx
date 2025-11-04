@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Noxx Aura | Beats, Licencias, Packs y Servicios</title>
+  <meta name="description" content="Página de Noxx Aura para vender beats, licencias, sample packs y servicios en un solo archivo." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --brand:#ef4444; --bg:#0b0b0d; --panel:#111216; --ink:#e5e7eb; --muted:#9ca3af; }
+    html { scroll-behavior:smooth }
+    .glass { background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); backdrop-filter: blur(8px); border:1px solid rgba(255,255,255,0.06); }
+    .card { border:1px solid rgba(255,255,255,0.06); background:linear-gradient(180deg, #141418 0%, #0d0e11 100%); }
+    .ring-brand { box-shadow: 0 0 0 2px rgba(239,68,68,0.2); }
+  </style>
+</head>
+<body class="bg-[var(--bg)] text-[var(--ink)] antialiased">
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 glass">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="#home" class="flex items-center gap-2 group">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-[var(--brand)]"><path d="M3 21V3h3l3 6 3-6h3v18h-3V9l-3 6-3-6v12H3Z" fill="currentColor"/></svg>
+        <span class="font-semibold tracking-wide">NOXX AURA</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#beats" class="hover:text-[var(--brand)]">Beats</a>
+        <a href="#licencias" class="hover:text-[var(--brand)]">Licencias</a>
+        <a href="#packs" class="hover:text-[var(--brand)]">Sample Packs</a>
+        <a href="#servicios" class="hover:text-[var(--brand)]">Servicios</a>
+        <a href="#faq" class="hover:text-[var(--brand)]">FAQ</a>
+        <a href="#contacto" class="px-3 py-1.5 rounded-lg bg-[var(--brand)] text-black font-medium">Contacto</a>
+      </div>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/5" aria-label="Abrir menú">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+    </nav>
+    <div id="mobileNav" class="md:hidden hidden px-4 pb-4">
+      <div class="flex flex-col gap-2 text-sm">
+        <a href="#beats" class="py-2 border-t border-white/5">Beats</a>
+        <a href="#licencias" class="py-2 border-t border-white/5">Licencias</a>
+        <a href="#packs" class="py-2 border-t border-white/5">Sample Packs</a>
+        <a href="#servicios" class="py-2 border-t border-white/5">Servicios</a>
+        <a href="#faq" class="py-2 border-t border-white/5">FAQ</a>
+        <a href="#contacto" class="py-2 border-t border-b border-white/5">Contacto</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-30" aria-hidden="true">
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-[var(--brand)] blur-[160px] rounded-full"></div>
+      <div class="absolute top-1/2 -left-24 w-80 h-80 bg-white/10 blur-[120px] rounded-full"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Beats de Trap & Drill<br><span class="text-[var(--brand)]">listos para tu próximo release</span></h1>
+        <p class="mt-4 text-[var(--muted)]">Escuchá previews, elegí tu licencia y descargá al instante. Estilo minimal, golpe fuerte, workflow simple.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#beats" class="px-5 py-3 rounded-xl bg-[var(--brand)] text-black font-semibold">Ver Beats</a>
+          <a href="#licencias" class="px-5 py-3 rounded-xl border border-white/10 hover:border-white/20">Ver Licencias</a>
+        </div>
+      </div>
+      <div class="card rounded-2xl p-4 ring-brand">
+        <video id="heroVideo" class="w-full rounded-xl" src="" poster="" muted loop playsinline></video>
+        <div class="mt-3 flex items-center justify-between">
+          <span class="text-sm text-[var(--muted)]">Preview visual del estudio</span>
+          <button id="heroPlay" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-sm">Reproducir</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEATS -->
+  <section id="beats" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold">Beats destacados</h2>
+        <p class="text-[var(--muted)] text-sm">3 previews. Reproducí, elegí licencia y comprá.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <input id="search" type="search" placeholder="Buscar por nombre/estilo" class="w-56 px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:outline-none" />
+      </div>
+    </div>
+
+    <div id="beatsGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Las tarjetas se inyectan por JS desde BEATS[] -->
+    </div>
+  </section>
+
+  <!-- LICENCIAS -->
+  <section id="licencias" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <h2 class="text-2xl sm:text-3xl font-bold">Licencias</h2>
+    <p class="text-[var(--muted)] text-sm">Elige la licencia que encaje con tu proyecto. Upgrade disponible.</p>
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+      <div class="card rounded-2xl p-6">
+        <h3 class="text-xl font-semibold">Básica</h3>
+        <p class="text-[var(--muted)] text-sm">MP3 + WAV, uso en redes, 50k streams.</p>
+        <div class="mt-4 text-3xl font-bold">$15</div>
+        <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
+          <li>Uso no exclusivo</li>
+          <li>Sin stems</li>
+          <li>Monetización limitada</li>
+        </ul>
+        <button class="mt-6 w-full px-4 py-2 rounded-xl bg-[var(--brand)] text-black font-semibold">Comprar</button>
+      </div>
+      <div class="card rounded-2xl p-6 ring-brand">
+        <h3 class="text-xl font-semibold">Premium</h3>
+        <p class="text-[var(--muted)] text-sm">+ Stems, 500k streams, radio local.</p>
+        <div class="mt-4 text-3xl font-bold">$40</div>
+        <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
+          <li>Uso no exclusivo</li>
+          <li>Stems incluidos</li>
+          <li>Monetización ampliada</li>
+        </ul>
+        <button class="mt-6 w-full px-4 py-2 rounded-xl bg-[var(--brand)] text-black font-semibold">Comprar</button>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <h3 class="text-xl font-semibold">Exclusiva</h3>
+        <p class="text-[var(--muted)] text-sm">Derechos exclusivos. Se retira de la tienda.</p>
+        <div class="mt-4 text-3xl font-bold">$300+</div>
+        <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
+          <li>Transferencia de derechos</li>
+          <li>Uso comercial total</li>
+          <li>Contrato individual</li>
+        </ul>
+        <button class="mt-6 w-full px-4 py-2 rounded-xl border border-white/15 hover:border-white/30">Consultar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKS -->
+  <section id="packs" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <h2 class="text-2xl sm:text-3xl font-bold">Sample Packs</h2>
+    <p class="text-[var(--muted)] text-sm">Loops, one-shots y drums listos para usar.</p>
+    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="card rounded-2xl p-5 flex flex-col">
+        <div class="aspect-[16/9] rounded-xl bg-gradient-to-br from-white/10 to-white/5"></div>
+        <h3 class="mt-4 font-semibold">Dark Drill Kit Vol. 1</h3>
+        <p class="text-[var(--muted)] text-sm">150+ sonidos. 24-bit WAV.</p>
+        <div class="mt-2 font-bold">$20</div>
+        <button class="mt-3 px-4 py-2 rounded-xl bg-[var(--brand)] text-black font-semibold">Comprar</button>
+      </article>
+      <article class="card rounded-2xl p-5 flex flex-col">
+        <div class="aspect-[16/9] rounded-xl bg-gradient-to-br from-white/10 to-white/5"></div>
+        <h3 class="mt-4 font-semibold">Melodic Trap Loops</h3>
+        <p class="text-[var(--muted)] text-sm">50 loops + MIDI.</p>
+        <div class="mt-2 font-bold">$18</div>
+        <button class="mt-3 px-4 py-2 rounded-xl bg-[var(--brand)] text-black font-semibold">Comprar</button>
+      </article>
+      <article class="card rounded-2xl p-5 flex flex-col">
+        <div class="aspect-[16/9] rounded-xl bg-gradient-to-br from-white/10 to-white/5"></div>
+        <h3 class="mt-4 font-semibold">808s Essential Pack</h3>
+        <p class="text-[var(--muted)] text-sm">60 808s listos para mezclar.</p>
+        <div class="mt-2 font-bold">$12</div>
+        <button class="mt-3 px-4 py-2 rounded-xl bg-[var(--brand)] text-black font-semibold">Comprar</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <h2 class="text-2xl sm:text-3xl font-bold">Servicios</h2>
+    <p class="text-[var(--muted)] text-sm">Producción a medida, mezcla y mastering.</p>
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+      <div class="card rounded-2xl p-6">
+        <h3 class="text-lg font-semibold">Beat a medida</h3>
+        <p class="text-[var(--muted)] text-sm">Referencias, BPM y mood a elección.</p>
+        <div class="mt-2 font-bold">Desde $80</div>
+        <button class="mt-4 px-4 py-2 rounded-xl border border-white/15 hover:border-white/30">Pedir briefing</button>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <h3 class="text-lg font-semibold">Mix + Master</h3>
+        <p class="text-[var(--muted)] text-sm">Entrega -14 LUFS, estándar streaming.</p>
+        <div class="mt-2 font-bold">Desde $40</div>
+        <button class="mt-4 px-4 py-2 rounded-xl border border-white/15 hover:border-white/30">Solicitar</button>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <h3 class="text-lg font-semibold">Consultoría</h3>
+        <p class="text-[var(--muted)] text-sm">Estrategia, branding y distribución.</p>
+        <div class="mt-2 font-bold">$15 / 30min</div>
+        <button class="mt-4 px-4 py-2 rounded-xl border border-white/15 hover:border-white/30">Agendar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <h2 class="text-2xl sm:text-3xl font-bold">FAQ</h2>
+    <div class="mt-6 space-y-4">
+      <details class="card rounded-2xl p-5">
+        <summary class="cursor-pointer font-medium">¿Qué incluye cada licencia?</summary>
+        <p class="mt-3 text-[var(--muted)] text-sm">Básica: WAV/MP3 y uso limitado. Premium: añade stems y mayor monetización. Exclusiva: derechos completos y retiro del beat.</p>
+      </details>
+      <details class="card rounded-2xl p-5">
+        <summary class="cursor-pointer font-medium">¿Cómo recibo los archivos?</summary>
+        <p class="mt-3 text-[var(--muted)] text-sm">Descarga inmediata y link por correo. Stems en ZIP.</p>
+      </details>
+      <details class="card rounded-2xl p-5">
+        <summary class="cursor-pointer font-medium">¿Puedo upgrade a otra licencia?</summary>
+        <p class="mt-3 text-[var(--muted)] text-sm">Sí, pagás la diferencia siempre que el beat siga disponible.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="card rounded-2xl p-6">
+      <h2 class="text-2xl font-bold">Contacto</h2>
+      <p class="text-[var(--muted)] text-sm">Escribime tu idea y te respondo con tiempos y costo.</p>
+      <form class="mt-4 grid gap-3">
+        <input type="text" placeholder="Nombre" class="px-3 py-2 rounded-lg bg-white/5 border border-white/10" required />
+        <input type="email" placeholder="Email" class="px-3 py-2 rounded-lg bg-white/5 border border-white/10" required />
+        <textarea rows="4" placeholder="Mensaje" class="px-3 py-2 rounded-lg bg-white/5 border border-white/10"></textarea>
+        <button type="submit" class="px-5 py-3 rounded-xl bg-[var(--brand)] text-black font-semibold w-fit">Enviar</button>
+      </form>
+    </div>
+    <p class="text-center text-[var(--muted)] text-xs mt-6">© <span id="year"></span> Noxx Aura. Todos los derechos reservados.</p>
+  </section>
+
+  <!-- MODAL DE COMPRA SIMULADA -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/70 p-4">
+    <div class="card rounded-2xl max-w-md w-full p-6">
+      <div class="flex items-start justify-between">
+        <h3 class="text-xl font-semibold">Completar compra</h3>
+        <button id="closeModal" class="p-2 hover:bg-white/5 rounded-lg" aria-label="Cerrar">✕</button>
+      </div>
+      <p id="modalDesc" class="mt-2 text-[var(--muted)] text-sm"></p>
+      <div class="mt-4 grid gap-3">
+        <input type="text" placeholder="Nombre y apellido" class="px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+        <input type="email" placeholder="Email" class="px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+        <button class="px-4 py-2 rounded-xl bg-[var(--brand)] text-black font-semibold">Pagar (demo)</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="py-10 border-t border-white/5 text-center text-sm text-[var(--muted)]">
+    Hecho con ♥ en Buenos Aires. Estética rojo/negro. Minimal y directo.
+  </footer>
+
+  <script>
+    // DATA
+    const BEATS = [
+      {
+        id: 'na-b001',
+        titulo: 'Noxx – Shadow Ops',
+        genero: 'Drill',
+        bpm: 144,
+        precio: 25,
+        video: '', // dejar vacío si no tenés aún
+        poster: '',
+        preview: 'https://www.kozco.com/tech/piano2-CoolEdit.mp3' // demo pública
+      },
+      {
+        id: 'na-b002',
+        titulo: 'Noxx – Redline',
+        genero: 'Trap',
+        bpm: 146,
+        precio: 25,
+        video: '',
+        poster: '',
+        preview: 'https://www.kozco.com/tech/organfinale.mp3'
+      },
+      {
+        id: 'na-b003',
+        titulo: 'Noxx – Night Cycle',
+        genero: 'Plug',
+        bpm: 138,
+        precio: 25,
+        video: '',
+        poster: '',
+        preview: 'https://www.kozco.com/tech/LRMonoPhase4.mp3'
+      }
+    ];
+
+    // UTIL
+    const $ = s => document.querySelector(s);
+    const $$ = s => Array.from(document.querySelectorAll(s));
+
+    // MENU MOBILE
+    $('#menuBtn')?.addEventListener('click', () => {
+      $('#mobileNav')?.classList.toggle('hidden');
+    });
+
+    // HERO demo: usar el audio del primer beat como "video" muted fallback
+    $('#heroPlay')?.addEventListener('click', () => {
+      const a = new Audio(BEATS[0].preview);
+      a.play();
+    });
+
+    // RENDER BEATS
+    function renderBeats(list) {
+      const grid = $('#beatsGrid');
+      grid.innerHTML = '';
+      list.forEach(beat => {
+        const el = document.createElement('article');
+        el.className = 'card rounded-2xl overflow-hidden flex flex-col';
+        el.innerHTML = `
+          <div class="p-5 pb-0">
+            <div class="aspect-[16/9] rounded-xl bg-black/50 relative overflow-hidden">
+              <audio src="${beat.preview}" preload="none"></audio>
+              <button class="play absolute inset-0 grid place-items-center hover:bg-white/5">
+                <svg width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-[var(--brand)]"><path d="M8 5v14l11-7L8 5Z" fill="currentColor"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="p-5 space-y-1">
+            <h3 class="font-semibold">${beat.titulo}</h3>
+            <p class="text-xs text-[var(--muted)]">${beat.genero} · ${beat.bpm} BPM</p>
+            <div class="flex items-center justify-between pt-2">
+              <div class="font-bold">$${beat.precio}</div>
+              <div class="flex items-center gap-2">
+                <button class="comprar px-3 py-1.5 rounded-lg bg-[var(--brand)] text-black text-sm font-semibold">Comprar</button>
+                <button class="licencias px-3 py-1.5 rounded-lg border border-white/10 text-sm">Licencias</button>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(el);
+      });
+
+      // hooks
+      $$('#beatsGrid .play').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const audio = btn.parentElement.querySelector('audio');
+          $$('#beatsGrid audio').forEach(a => { if (a!==audio) { a.pause(); a.currentTime = 0; } });
+          audio.paused ? audio.play() : audio.pause();
+        });
+      });
+      $$('#beatsGrid .comprar').forEach((btn, i) => {
+        btn.addEventListener('click', () => openModal(`Comprando <b>${list[i].titulo}</b> — licencia a elección`));
+      });
+      $$('#beatsGrid .licencias').forEach(btn => {
+        btn.addEventListener('click', () => location.hash = '#licencias');
+      });
+    }
+
+    renderBeats(BEATS);
+
+    // SEARCH
+    $('#search')?.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      const filtered = BEATS.filter(b => `${b.titulo} ${b.genero}`.toLowerCase().includes(q));
+      renderBeats(filtered);
+    });
+
+    // MODAL
+    const modal = $('#modal');
+    function openModal(desc) {
+      $('#modalDesc').innerHTML = desc;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    $('#closeModal')?.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    });
+
+    // Año
+    $('#year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
